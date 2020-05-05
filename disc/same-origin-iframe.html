@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <style>
+            .button {
+                border: 1px solid black;
+                background: lightblue;
+                font-size: 24px;
+                padding: 5px 15px;
+                margin: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div style="padding: 20px; border: solid 1px black;">
+            <iframe id="eduFrame" src="https://elearning-f8cc1.firebaseapp.com" width="100%" height="400"></iframe>
+        </div>
+        <div style="text-align: center;">
+            <button onclick="editIframeDOM()" class="button">Edit Iframe DOM</button>
+        </div>
+    </body>
+    <script>
+        function editIframeDOM() {            
+            document.getElementById('eduFrame').contentDocument.body.style.backgroundColor = 'red'
+        } 
+    </script>
+</html>
