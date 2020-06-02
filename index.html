@@ -1,0 +1,75 @@
+<html>
+  <head>
+    <style>
+      button {
+        width: auto;
+        height: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="text-align: center;">E learning</h1>
+    <div style="text-align: center;">Video's here.</div>
+    <div style="text-align: center;">
+      <div>
+        <label id="parent-origin">parent-origin : -</label>
+      </div>
+      <div>
+        <label id="parent-location">parent-location : -</label>
+      </div>
+      <div>
+        <button onclick='sendMessage("Login")'>Login</button>
+      </div>
+      <div>
+        <button onclick='sendMessage("ExamDone")'>ExamDone</button>
+      </div>
+      <br />
+      <div>
+        <button onclick="forceParentOpenUrl()">
+          window.parent.location.href = url
+        </button>
+      </div>
+      <br />
+      <div>
+        <button onclick="openUrlToTop()">
+          window.top.location.href = url;
+        </button>
+      </div>
+      <br />
+      <div>
+        <button onclick="openUrlInsideIframe()">
+          window.location.href = url
+        </button>
+      </div>
+      <br />
+    </div>
+    <script>
+      let url = 'https://www.set.or.th';
+
+      window.onload = function (e) {
+        console.log('parent : ', window.parent);
+        document.getElementById('parent-origin').innerHTML =
+          'parent-origin : ' + window.parent.origin;
+        document.getElementById('parent-location').innerHTML =
+          'parent-location : ' + window.parent.location;
+      };
+
+      function sendMessage(message) {
+        window.parent.postMessage(message, '*');
+      }
+
+      function forceParentOpenUrl() {
+        window.parent.location.href = url;
+      }
+
+      function openUrlToTop() {
+        // window.open(url, '_top')
+        window.top.location.href = url;
+      }
+
+      function openUrlInsideIframe() {
+        window.location.href = url;
+      }
+    </script>
+  </body>
+</html>
