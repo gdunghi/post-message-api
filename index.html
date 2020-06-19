@@ -58,6 +58,7 @@
       };
 
       function sendMessage(message) {
+        console.log("in inframe",message);
         window.parent.postMessage(message, '*');
       }
 
